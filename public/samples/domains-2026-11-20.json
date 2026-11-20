@@ -1,0 +1,35 @@
+{
+  "read": "2026-11-20",
+  "resolver": "dns.google",
+  "answers": {
+    "getrevlio.com": {
+      "mx": [
+        "1 SMTP.GOOGLE.com."
+      ],
+      "txt": [],
+      "dmarc": [
+        "v=DMARC1; p=none;"
+      ],
+      "dkim": {
+        "google": [
+          "v=DKIM1;k=rsa;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwjk6S8APez2qMiASDdnGW5ZcFHazw0olj9jhTKD89N14Q5F4M9yS1SLXlKsCXZblQhNTohCYGvJtiuztG1zJDidSO65lc/Vwn50/OfnvqFlcNNcd9VqAsbreyMTUfKuCvO3F2uoVXW5PoGxJMgopGrngEsumloBIngOoy59AucfOgsbygkeQ4Nf82+aMBMpIIoeX4QvkIoO5oqzUviSktm0p2sa3HN4VebwnXOu3fRSsSYfvFz8BS3qoQxG8LGX+t7+bj7YB//VFx9yvsT5dLAc56NGqgM3k2LRiz41ggaBtZXYLtlsBLA4ZE2KxG5w4L8fVpKb5tx8Zzp2iPQHMyQIDAQAB"
+        ],
+        "resend": [
+          "p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0EpaQa/8wuApElbY0DIs0Z3mPUqVUaf12IkE1+yHNcHu7F4RKVxdvhGduJfbi1S5qLFC9/WS4uVrQ/x4NNa/dVF01zEexGTJPIg617gknKQNBLOAXUn2meckoP2b7jcfHZgmHn0hprWmhVZ7BRdNFcqp+mJleYPBCqvEUJGXe7QIDAQAB"
+        ]
+      },
+      "spf": {},
+      "mtasts": [],
+      "bimi": []
+    },
+    "provryn.pro": {
+      "mx": [],
+      "txt": [],
+      "dmarc": [],
+      "dkim": {},
+      "spf": {},
+      "mtasts": [],
+      "bimi": []
+    }
+  }
+}

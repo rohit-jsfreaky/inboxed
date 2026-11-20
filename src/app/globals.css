@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+/* Inboxed: the post. White paper, deep teal ink, postmark rings, pass/fix lights. */
+:root {
+  --paper: #ffffff;
+  --wash: #f2f5f5;
+  --ink: #13191c;
+  --ink-2: #3b4549;
+  --muted: #5d686d;
+  --faint: #9aa4a8;
+  --line: #dde3e4;
+  --rule: #c3ccce;
+  --teal: #0e4a52;
+  --teal-2: #145f69;
+  --teal-soft: #e3f0f1;
+  --pass: #1b7a4a;
+  --pass-soft: #e6f3ec;
+  --warn: #8a5a00;
+  --warn-soft: #fbf1dd;
+  --fail: #b42318;
+  --fail-soft: #fdecea;
+  --info: #4e5a60;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-wash: var(--wash);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-rule: var(--rule);
+  --color-teal: var(--teal);
+  --color-teal-2: var(--teal-2);
+  --color-teal-soft: var(--teal-soft);
+  --color-pass: var(--pass);
+  --color-pass-soft: var(--pass-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-fail: var(--fail);
+  --color-fail-soft: var(--fail-soft);
+  --color-info: var(--info);
+  --font-sans: var(--font-hanken), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-fragment), Menlo, monospace;
+}
+
+html { -webkit-font-smoothing: antialiased; }
+body { background: var(--paper); color: var(--ink); font-family: var(--font-hanken), "Helvetica Neue", Arial, sans-serif; }
+::selection { background: #cfe6e8; }
+
+@layer components {
+  .tag { font-family: var(--font-fragment), Menlo, monospace; font-size: 11.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; font-weight: 600; font-size: 14px; padding: 8px 15px; white-space: nowrap; transition: background-color 120ms ease, border-color 120ms ease; }
+  .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .btn-teal { background: var(--teal); color: #fff; }
+  .btn-teal:hover:not(:disabled) { background: var(--teal-2); }
+  .btn-line { background: var(--paper); color: var(--ink); border: 1px solid var(--rule); }
+  .btn-line:hover:not(:disabled) { border-color: var(--teal); }
+  .input { width: 100%; background: var(--paper); border: 1px solid var(--rule); border-radius: 10px; padding: 8px 11px; font-size: 14px; outline: none; transition: border-color 120ms ease, box-shadow 120ms ease; }
+  .input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgb(14 74 82 / 0.12); }
+  .airmail { background-image: repeating-linear-gradient(-45deg, var(--fail) 0 12px, var(--paper) 12px 20px, var(--teal) 20px 32px, var(--paper) 32px 40px); }
+  .scroll-thin { scrollbar-width: thin; scrollbar-color: var(--rule) transparent; }
+}

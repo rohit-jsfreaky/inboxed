@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "template": {
+    "module": "../templates/request.tsx",
+    "id": "inboxed.Request",
+    "version": "1.0.0",
+    "sha256": "4e49f96d3b02739f19b147dc3cc55560bb962f705c82ce5b7c214d90bcc73e92"
+  },
+  "values": {
+    "domain": "getrevlio.com",
+    "checked": "2026-11-20",
+    "preparedBy": "Kestrel Web Studio",
+    "client": "Revlio",
+    "provider": "Google Workspace",
+    "sending": true,
+    "verdict": "at-risk",
+    "gmailAll": true,
+    "gmailBulk": false,
+    "checks": [
+      {
+        "id": "mx",
+        "level": "info",
+        "title": "Mail goes to Google Workspace",
+        "detail": "1 mail server receives mail for getrevlio.com.",
+        "value": "smtp.google.com."
+      },
+      {
+        "id": "spf",
+        "level": "fail",
+        "title": "No SPF record",
+        "detail": "Receivers can't tell which servers may send as this domain. Gmail requires SPF or DKIM from every sender, and both for bulk senders."
+      },
+      {
+        "id": "dkim",
+        "level": "warn",
+        "title": "DKIM found (google, resend)",
+        "detail": "Signing keys work; resend uses a 1024-bit key. 2048-bit is the current recommendation.",
+        "value": "google: 2048-bit, resend: 1024-bit"
+      },
+      {
+        "id": "dmarc",
+        "level": "warn",
+        "title": "DMARC policy: none",
+        "detail": "Monitoring only: mail that fails is still delivered, so the domain can still be spoofed. And no rua= address, so nobody receives the reports.",
+        "value": "v=DMARC1; p=none;"
+      },
+      {
+        "id": "mtasts",
+        "level": "info",
+        "title": "No MTA-STS",
+        "detail": "Optional: forces encrypted delivery to this domain."
+      },
+      {
+        "id": "bimi",
+        "level": "info",
+        "title": "No BIMI",
+        "detail": "Optional: shows your logo in some inboxes; needs DMARC at quarantine or reject."
+      }
+    ],
+    "fixes": [
+      {
+        "type": "TXT",
+        "host": "@",
+        "value": "v=spf1 include:_spf.google.com ~all",
+        "why": "Lets Google Workspace send as getrevlio.com. Add an include: for every other service that sends as you."
+      },
+      {
+        "type": "TXT",
+        "host": "_dmarc",
+        "value": "v=DMARC1; p=quarantine; rua=mailto:dmarc@getrevlio.com",
+        "why": "Next step, once reports show your real mail passes: failing mail goes to spam."
+      }
+    ]
+  }
+}
