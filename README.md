@@ -10,6 +10,8 @@ email), and writes three things:
 
 Built with [Hyper Elements](https://github.com/hyper-elements/hyper-elements) for the Hyper Elements Template Challenge.
 
+**Live:** https://inboxed.rohitkashyapmrt.workers.dev
+
 ![Inboxed checking getrevlio.com: no SPF record, DKIM found, DMARC set to none](media/postroom.png)
 
 ## Why this exists
@@ -66,8 +68,8 @@ FAQ): [media/landing.png](media/landing.png). On a phone: [media/mobile.png](med
 
 ## How Hyper Elements is used
 
-The three outputs are **Hyper Elements templates** in `templates/`. The app renders them in a route handler
-(`src/app/api/render/route.ts`), and the CLI renders the same files.
+The three outputs are **Hyper Elements templates** in `templates/`. The app renders them in the browser
+(`src/lib/render-route.ts`, so the site runs on Cloudflare with no render server), and the CLI renders the same files.
 
 - **Typed fields with rules** (`templates/_shared/doc.tsx`): the domain must look like a domain, each check's result
   is one of `pass / warn / fail / info`, a record is `TXT` or `MX`, and there are at most 8 records. A value outside
@@ -97,7 +99,7 @@ npm run check          # check the three templates with their example
 npm run reports        # docs/getrevlio.json → out/docs/ (report PDF, request email, card PNG)
 npm run sample         # re-read the two domains' DNS and rebuild the sample
 npm run preview:email  # the email as each email client draws it
-npm run build && npm start
+npm run build && npx wrangler dev   # the static site, served the way Cloudflare does
 ```
 
 ## Project layout
